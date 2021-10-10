@@ -2,5 +2,9 @@
 
 . bin/variables
 
+cd ${DOCKER_DIRECTORY}
+
 # Run command in php-fpm service
 docker-compose exec -w /home/dockeruser/backend php-fpm "$@"
+
+cd ${APP_DIRECTORY}

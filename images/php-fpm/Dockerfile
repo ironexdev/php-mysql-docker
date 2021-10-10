@@ -9,8 +9,6 @@ RUN addgroup -g $GROUP_ID -S dockeruser
 
 RUN adduser -S -G dockeruser -u $USER_ID -s /bin/ash dockeruser
 
-COPY --chown=$USER_ID:$GROUP_ID $BACKEND_CONTEXT_PATH /home/dockeruser/backend
-
 # PHP gd dependencies
 RUN apk add zlib-dev
 RUN apk add jpeg-dev
@@ -56,8 +54,6 @@ COPY --chown=$USER_ID:$GROUP_ID $DOCKER_IMAGE_CONTEXT_PATH/php-fpm/php.ini /usr/
 RUN apk add composer
 
 WORKDIR /home/dockeruser/backend
-
-RUN composer install
 
 USER dockeruser
 

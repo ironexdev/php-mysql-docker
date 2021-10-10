@@ -10,7 +10,6 @@ export APP_DIRECTORY=$(pwd)
 # Docker
 export DOCKER_BIN_DIRECTORY=${APP_DIRECTORY}/bin/docker
 export DOCKER_DIRECTORY=${APP_DIRECTORY}/docker
-export DOCKER_SECRET_DIRECTORY=${DOCKER_DIRECTORY}/secrets
 export DOCKER_IMAGE_CONTEXT_PATH=docker/images # Used in Dockerfiles as relative path to the context (APP_DIRECTORY)
 
 # Backend

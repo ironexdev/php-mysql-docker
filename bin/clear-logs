@@ -2,5 +2,9 @@
 
 . bin/variables
 
+cd ${DOCKER_DIRECTORY}
+
 find ${APP_SERVER_LOG_DIRECTORY} \! -name ".gitignore" -delete
 find ${HTTP_PROXY_LOG_DIRECTORY} \! -name ".gitignore" -delete
+
+cd ${APP_DIRECTORY}

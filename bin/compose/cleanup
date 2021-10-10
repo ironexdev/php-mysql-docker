@@ -3,7 +3,11 @@
 . bin/variables
 
 # Stop running containers and remove images (-v parameter can be added to also remove volumes)
-bin/compose/down --rmi all "$@"
+${DOCKER_BIN_DIRECTORY}/compose/down --rmi all "$@"
+
+cd ${DOCKER_DIRECTORY}
 
 # Remove stopped containers
 docker-compose rm
+
+cd ${APP_DIRECTORY}

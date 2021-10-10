@@ -1,15 +1,3 @@
-FROM node:14-alpine3.13 as build-stage
-
-ARG FRONTEND_CONTEXT_PATH
-
-COPY $FRONTEND_CONTEXT_PATH /frontend
-
-WORKDIR /frontend
-
-RUN yarn install
-
-RUN yarn build
-
 FROM nginx:1.20.0-alpine AS production-stage
 
 ARG DOCKER_IMAGE_CONTEXT_PATH
@@ -36,8 +24,6 @@ RUN unlink /var/log/nginx/access.log && touch /var/log/nginx/access.log && chown
 RUN unlink /var/log/nginx/error.log && touch /var/log/nginx/error.log && chown dockeruser /var/log/nginx/error.log
 
 COPY --chown=$USER_ID:$GROUP_ID $DOCKER_IMAGE_CONTEXT_PATH/app-server/default.conf /etc/nginx/conf.d/default.conf
-
-COPY --from build-stage --chown=$USER_ID:$GROUP_ID $FRONTEND_CONTEXT_PATH/dist/ /home/dockeruser/frontend/dist/
 
 USER dockeruser
 

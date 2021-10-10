@@ -2,5 +2,9 @@
 
 . bin/variables
 
+cd ${DOCKER_DIRECTORY}
+
 # Run command in mysql container
 docker-compose exec mysql
+
+cd ${APP_DIRECTORY}

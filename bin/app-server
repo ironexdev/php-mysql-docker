@@ -2,5 +2,9 @@
 
 . bin/variables
 
+cd ${DOCKER_DIRECTORY}
+
 # Run command in app-server container
 docker-compose exec -w /home/dockeruser/frontend app-server "$@"
+
+cd ${APP_DIRECTORY}
