@@ -1,0 +1,3 @@
+FROM adminer:4.8.1-fastcgi
+
+EXPOSE 9000

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. bin/variables
+
+# Run command in php-fpm service
+docker-compose exec -w /home/dockeruser/backend php-fpm "$@"

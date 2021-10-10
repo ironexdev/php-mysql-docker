@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. bin/variables
+
+# Run command in mysql container
+docker-compose exec mysql

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# User
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -u)
+
+# App directory
+export APP_DIRECTORY=$(pwd)
+
+# Docker
+export DOCKER_BIN_DIRECTORY=${APP_DIRECTORY}/bin/docker
+export DOCKER_DIRECTORY=${APP_DIRECTORY}/docker
+export DOCKER_SECRET_DIRECTORY=${DOCKER_DIRECTORY}/secrets
+export DOCKER_IMAGE_CONTEXT_PATH=docker/images # Used in Dockerfiles as relative path to the context (APP_DIRECTORY)
+
+# Backend
+export BACKEND_CONTEXT_PATH=backend # Used in Dockerfiles as relative path to the context (APP_DIRECTORY)
+export BACKEND_DIRECTORY=${APP_DIRECTORY}/${BACKEND_CONTEXT_PATH}
+
+# Frontend
+export FRONTEND_CONTEXT_PATH=frontend # Used in Dockerfiles as relative path to the context (APP_DIRECTORY)
+export FRONTEND_DIRECTORY=${APP_DIRECTORY}/${FRONTEND_CONTEXT_PATH}
+
+# Logs
+export LOG_DIRECTORY=${DOCKER_DIRECTORY}/logs
+export APP_SERVER_LOG_DIRECTORY=${LOG_DIRECTORY}/app-server
+export HTTP_PROXY_LOG_DIRECTORY=${LOG_DIRECTORY}/http-proxy

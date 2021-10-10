@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. bin/variables
+
+# Run command in app-server container
+docker-compose exec -w /home/dockeruser/frontend app-server "$@"
