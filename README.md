@@ -11,9 +11,14 @@
 
 - Adminer
 - Nginx application server
+  - Node
+  - Yarn
+  - Bind-mounted frontend folder to your host
 - Nginx http proxy
+  - Composer
 - MySQL
 - PHP-FPM
+  - Bind-mounted backend folder to your host
 - Redis
 - Redis Admin
 
