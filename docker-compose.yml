@@ -90,16 +90,10 @@ services:
     environment:
       ADMIN_EMAIL: "admin@pmd.local"
       DEBUG_LOG_DIRECTORY: "var/log/debug"
-      JWT_KEY: /run/secrets/pmd_jwt_key
-      OAUTH2_KEY: /run/secrets/pmd_oauth2_key
       ENVIRONMENT: "development"
       ERROR_REPORTING: "true"
       FORCE_HTTPS: "false"
       INFO_EMAIL: "info@pmd.local"
-      MAILER_HOST: "smtp.mailgun.org"
-      MAILER_PORT: "587"
-      MAILER_USER: postmaster@sandboxdc85f60c099b4ef28d752259b3a73dad.mailgun.org
-      MAILER_PASSWORD: /run/secrets/pmd_mailer_password
       MYSQL_DATABASE: "pmd"
       MYSQL_PASSWORD_FILE: /run/secrets/pmd_mysql_password
       MYSQL_USER_FILE: /run/secrets/pmd_mysql_user
@@ -115,9 +109,6 @@ services:
     secrets:
       - pmd_mysql_password
       - pmd_mysql_user
-      - pmd_mailer_password
-      - pmd_jwt_key
-      - pmd_oauth2_key
     volumes:
       - $BACKEND_DIRECTORY:/home/dockeruser/backend
       - $DOCKER_DIRECTORY/php-fpm/php.ini:/usr/local/etc/php/php.ini
@@ -154,12 +145,6 @@ secrets:
     file: $DOCKER_SECRET_DIRECTORY/pmd_mysql_root_password.txt
   pmd_mysql_user:
     file: $DOCKER_SECRET_DIRECTORY/pmd_mysql_user.txt
-  pmd_mailer_password:
-    file: $DOCKER_SECRET_DIRECTORY/pmd_mailer_password.txt
-  pmd_jwt_key:
-    file: $DOCKER_SECRET_DIRECTORY/pmd_jwt_key.txt
-  pmd_oauth2_key:
-    file: $DOCKER_SECRET_DIRECTORY/pmd_oauth2_key.txt
 
 volumes:
   mysql:
