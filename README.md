@@ -22,7 +22,7 @@
 - Redis
 - Redis Admin
 
-## How To Use
+## Setup Part 1
 
 This repository should be used as a submodule.
 
@@ -39,22 +39,24 @@ This repository should be used as a submodule.
 
 2) Run `bin/init` from the wrapper project
 
-3) Copy and paste `bin/variables.example.txt` to your main project as `bin/variables` with +x permission
+## Setup Part 2
 
-4) Add urls from `images/http-proxy/default.conf` to `etc/hosts` on your machine
+1) Copy and paste `bin/variables.example.txt` to your main project as `bin/variables` with +x permission
+
+2) Add urls from `images/http-proxy/default.conf` to `etc/hosts` on your machine
    - `adminer.pmd.local`
    - `api.pmd.local`
    - `pmd.local`
    - `redis.pmd.local`
 
-5) Run bin/compose/secrets to generate mysql credentials used by the app
+3) Run bin/compose/secrets to generate mysql credentials used by the app
    - You will probably get some "No such file or directory" errors, but it's ok - check if files were created in secrets folder
    - Your can access them from php by reading files
      - `file_get_contents($_ENV["MYSQL_PASSWORD_FILE"])`
 
-6) Run `bin/docker/compose/up` from your main project
+4) Run `bin/docker/compose/up` from your main project
 
-7) Folders backend and frontend should now be created in your main project.
+5) Folders backend and frontend should now be created in your main project.
    - Add public/index.php to backend folder
    - Add dist/index.html to frontend folder
 
