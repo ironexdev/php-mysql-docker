@@ -15,9 +15,9 @@
   - Yarn
   - Bind-mounted frontend folder to your host
 - Nginx http proxy
-  - Composer
 - MySQL
 - PHP-FPM
+  - Composer
   - Bind-mounted backend folder to your host
 - Redis
 - Redis Admin
@@ -26,10 +26,18 @@
 
 This repository should be used as a submodule.
 
+**A) Use it in your own project**
+
 1) Fork this project to your Git and include it in your main project as submodule
 
 2) Create symlink from main repo to bin of this project `main-project/bin/docker` -> `php-mysql-docker/bin`
-   - You should now be able to call every from this repo from the root of your project, for example: `bin/docker/compose/up`, `bin/docker/php/fpm pwd`, ...
+        - You should now be able to call every from this repo from the root of your project, for example: `bin/docker/compose/up`, `bin/docker/php/fpm pwd`, ...
+
+**B) Use it in example wrapper project**
+
+1) Clone https://github.com/ironexdev/php-mysql-docker-wrapper
+
+2) Run `bin/init` from the wrapper project
 
 3) Copy and paste `bin/variables.example.txt` to your main project as `bin/variables` with +x permission
 
@@ -44,9 +52,9 @@ This repository should be used as a submodule.
    - Your can access them from php by reading files
      - `file_get_contents($_ENV["MYSQL_PASSWORD_FILE"])`
 
-7) Run `bin/docker/compose/up` from your main project
+6) Run `bin/docker/compose/up` from your main project
 
-8) Folders backend and frontend should now be created in your main project.
+7) Folders backend and frontend should now be created in your main project.
    - Add public/index.php to backend folder
    - Add dist/index.html to frontend folder
 
